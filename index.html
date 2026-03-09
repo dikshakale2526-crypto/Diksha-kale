@@ -2,67 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CSS3 Styling Example</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap Responsive Page</title>
 
-<style>
-body{
-    background-color:#f0f8ff;
-    font-family: Arial, sans-serif;
-    text-align:center;
-    margin:40px;
-}
-
-/* Color and Font Example */
-.title{
-    color:#2c3e50;
-    font-size:40px;
-    font-family: Georgia, serif;
-}
-
-/* Border Example */
-.box{
-    border:4px solid #3498db;
-    border-radius:12px;
-    padding:20px;
-    width:60%;
-    margin:auto;
-    background-color:#ffffff;
-}
-
-/* Text Effects */
-.text-effect{
-    color:#e74c3c;
-    font-size:24px;
-    text-shadow:2px 2px 5px gray;
-    letter-spacing:2px;
-}
-
-/* Button Style */
-.button{
-    background-color:#27ae60;
-    color:white;
-    padding:12px 25px;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-.button:hover{
-    background-color:#1e8449;
-}
-</style>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
 
-<h1 class="title">CSS3 Styling Demo</h1>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">MyWebsite</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="box">
-    <p class="text-effect">This text uses CSS3 text effects.</p>
-    <p>Example of colors, fonts, borders, and styling.</p>
-    <button class="button">Click Me</button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="container mt-5 text-center">
+  <h1 class="display-4">Welcome to My Website</h1>
+  <p class="lead">This is a responsive webpage built with Bootstrap.</p>
 </div>
+
+<!-- Grid System Section -->
+<div class="container mt-5">
+  <div class="row">
+    
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h3>Feature 1</h3>
+        <p>Bootstrap grid system adjusts layout for different screen sizes.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h3>Feature 2</h3>
+        <p>Navigation bar collapses automatically on smaller devices.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h3>Feature 3</h3>
+        <p>Responsive design works on mobile, tablet, and desktop.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3 mt-5">
+  <p>© 2026 MyWebsite</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
