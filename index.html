@@ -1,104 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Form Validation</title>
+<meta charset="UTF-8">
+<title>Dynamic Webpage Example</title>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
 body{
-    font-family: Arial;
-    background:#f2f2f2;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    margin-top:100px;
 }
 
-form{
-    width:350px;
-    margin:50px auto;
+#contentBox{
+    width:300px;
+    margin:auto;
     padding:20px;
-    background:white;
-    border-radius:8px;
-}
-
-input{
-    width:100%;
-    padding:8px;
-    margin:10px 0;
+    border:2px solid #333;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 
 button{
-    padding:10px;
-    width:100%;
-    background:#007bff;
-    color:white;
-    border:none;
-}
-
-.error{
-    color:red;
-    font-size:14px;
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
 }
 </style>
-
-<script>
-function validateForm()
-{
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let phone = document.getElementById("phone").value;
-
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    let phonePattern = /^[0-9]{10}$/;
-
-    if(name == "")
-    {
-        alert("Name cannot be empty");
-        return false;
-    }
-
-    if(!email.match(emailPattern))
-    {
-        alert("Enter valid email");
-        return false;
-    }
-
-    if(password.length < 6)
-    {
-        alert("Password must be at least 6 characters");
-        return false;
-    }
-
-    if(!phone.match(phonePattern))
-    {
-        alert("Enter valid 10-digit phone number");
-        return false;
-    }
-
-    alert("Form submitted successfully!");
-    return true;
-}
-</script>
 
 </head>
 
 <body>
 
-<form onsubmit="return validateForm()">
-<h2>Registration Form</h2>
+<h1>Dynamic Webpage</h1>
 
-<label>Name</label>
-<input type="text" id="name">
+<div id="contentBox">
+    <p id="text">Click the button to change this content.</p>
+</div>
 
-<label>Email</label>
-<input type="text" id="email">
+<button id="changeBtn">Update Content</button>
 
-<label>Password</label>
-<input type="password" id="password">
+<script>
 
-<label>Phone</label>
-<input type="text" id="phone">
+$(document).ready(function(){
 
-<button type="submit">Submit</button>
+    $("#changeBtn").click(function(){
 
-</form>
+        $("#text").text("🎉 The content has been updated dynamically!");
+
+        $("#contentBox").css({
+            "background-color":"#d4edda",
+            "border-color":"#28a745"
+        });
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
+  
+
+  
