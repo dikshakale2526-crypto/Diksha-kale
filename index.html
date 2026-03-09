@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Dynamic Webpage Example</title>
+<title>AJAX Search Suggestion</title>
 
-<!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    margin-top:100px;
+    font-family: Arial;
+    margin: 50px;
 }
 
-#contentBox{
+#searchBox{
     width:300px;
-    margin:auto;
-    padding:20px;
-    border:2px solid #333;
-    border-radius:10px;
-    margin-bottom:20px;
+    padding:10px;
 }
 
-button{
-    padding:10px 20px;
-    font-size:16px;
+#suggestions{
+    width:300px;
+    border:1px solid #ccc;
+    display:none;
+}
+
+.suggestion-item{
+    padding:8px;
     cursor:pointer;
+}
+
+.suggestion-item:hover{
+    background:#f0f0f0;
 }
 </style>
 
@@ -34,28 +36,44 @@ button{
 
 <body>
 
-<h1>Dynamic Webpage</h1>
+<h2>Search with AJAX Suggestions</h2>
 
-<div id="contentBox">
-    <p id="text">Click the button to change this content.</p>
-</div>
+<input type="text" id="searchBox" placeholder="Type to search...">
 
-<button id="changeBtn">Update Content</button>
+<div id="suggestions"></div>
 
 <script>
 
 $(document).ready(function(){
 
-    $("#changeBtn").click(function(){
+$("#searchBox").keyup(function(){
 
-        $("#text").text("🎉 The content has been updated dynamically!");
+let query = $(this).val();
 
-        $("#contentBox").css({
-            "background-color":"#d4edda",
-            "border-color":"#28a745"
-        });
+if(query.length > 0){
 
-    });
+$.ajax({
+url: "search.php",
+method: "POST",
+data: {search: query},
+
+success: function(data){
+$("#suggestions").html(data);
+$("#suggestions").show();
+}
+
+});
+
+}else{
+$("#suggestions").hide();
+}
+
+});
+
+$(document).on("click",".suggestion-item",function(){
+$("#searchBox").val($(this).text());
+$("#suggestions").hide();
+});
 
 });
 
@@ -63,6 +81,5 @@ $(document).ready(function(){
 
 </body>
 </html>
-  
 
-  
+    
