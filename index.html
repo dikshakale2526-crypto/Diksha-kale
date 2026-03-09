@@ -1,50 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Arithmetic Operations using Switch</title>
+<meta charset="UTF-8">
+<title>User Registration</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+form{
+    width:350px;
+    margin:50px auto;
+    padding:20px;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 0 10px gray;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+}
+
+button{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+}
+</style>
 </head>
 
 <body>
 
-<h2>Arithmetic Calculator</h2>
+<form action="process.php" method="post">
+<h2>User Registration</h2>
 
-<script>
+<label>Full Name</label>
+<input type="text" name="name" required>
 
-// Taking input from user
-let num1 = parseFloat(prompt("Enter first number:"));
-let num2 = parseFloat(prompt("Enter second number:"));
-let operator = prompt("Enter operator (+, -, *, /):");
+<label>Email</label>
+<input type="email" name="email" required>
 
-let result;
+<label>Password</label>
+<input type="password" name="password" required>
 
-switch(operator)
-{
-    case "+":
-        result = num1 + num2;
-        break;
+<label>Gender</label>
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
 
-    case "-":
-        result = num1 - num2;
-        break;
+<label>Phone</label>
+<input type="text" name="phone">
 
-    case "*":
-        result = num1 * num2;
-        break;
+<button type="submit">Register</button>
 
-    case "/":
-        if(num2 != 0)
-            result = num1 / num2;
-        else
-            result = "Division by zero not allowed";
-        break;
-
-    default:
-        result = "Invalid Operator";
-}
-
-document.write("Result: " + result);
-
-</script>
+</form>
 
 </body>
 </html>
