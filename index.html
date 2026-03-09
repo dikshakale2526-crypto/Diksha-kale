@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>User Registration</title>
+<title>Form Validation</title>
+
 <style>
 body{
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background:#f2f2f2;
 }
 
@@ -15,50 +15,88 @@ form{
     padding:20px;
     background:white;
     border-radius:8px;
-    box-shadow:0 0 10px gray;
 }
 
-input, select{
+input{
     width:100%;
     padding:8px;
-    margin:8px 0;
+    margin:10px 0;
 }
 
 button{
-    background:#28a745;
-    color:white;
-    border:none;
     padding:10px;
     width:100%;
+    background:#007bff;
+    color:white;
+    border:none;
+}
+
+.error{
+    color:red;
+    font-size:14px;
 }
 </style>
+
+<script>
+function validateForm()
+{
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let phone = document.getElementById("phone").value;
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let phonePattern = /^[0-9]{10}$/;
+
+    if(name == "")
+    {
+        alert("Name cannot be empty");
+        return false;
+    }
+
+    if(!email.match(emailPattern))
+    {
+        alert("Enter valid email");
+        return false;
+    }
+
+    if(password.length < 6)
+    {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    if(!phone.match(phonePattern))
+    {
+        alert("Enter valid 10-digit phone number");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+
 </head>
 
 <body>
 
-<form action="process.php" method="post">
-<h2>User Registration</h2>
+<form onsubmit="return validateForm()">
+<h2>Registration Form</h2>
 
-<label>Full Name</label>
-<input type="text" name="name" required>
+<label>Name</label>
+<input type="text" id="name">
 
 <label>Email</label>
-<input type="email" name="email" required>
+<input type="text" id="email">
 
 <label>Password</label>
-<input type="password" name="password" required>
-
-<label>Gender</label>
-<select name="gender">
-<option>Male</option>
-<option>Female</option>
-<option>Other</option>
-</select>
+<input type="password" id="password">
 
 <label>Phone</label>
-<input type="text" name="phone">
+<input type="text" id="phone">
 
-<button type="submit">Register</button>
+<button type="submit">Submit</button>
 
 </form>
 
