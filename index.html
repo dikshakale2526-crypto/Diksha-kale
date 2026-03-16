@@ -1,85 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>AJAX Search Suggestion</title>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<style>
-body{
-    font-family: Arial;
-    margin: 50px;
-}
-
-#searchBox{
-    width:300px;
-    padding:10px;
-}
-
-#suggestions{
-    width:300px;
-    border:1px solid #ccc;
-    display:none;
-}
-
-.suggestion-item{
-    padding:8px;
-    cursor:pointer;
-}
-
-.suggestion-item:hover{
-    background:#f0f0f0;
-}
-</style>
-
+ <meta charset="UTF-8">
+ <title>Resume</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f4f6f8;
+ margin: 0;
+ padding: 0;
+ }
+ .resume {
+ width: 800px;
+ margin: 30px auto;
+ background-color: #ffffff;
+ padding: 25px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ }
+ h1 {
+ text-align: center;
+ margin-bottom: 5px;
+ }
+ h3 {
+ border-bottom: 2px solid #333;
+ padding-bottom: 5px;
+ color: #333;
+ }
+ p {
+ margin: 5px 0;
+ }
+ ul {
+ margin-top: 5px;
+ }
+ .header {
+ text-align: center;
+ }
+ .contact {
+ font-size: 14px;
+ color: #555;
+ }
+ table {
+ width: 100%;
+ border-collapse: collapse;
+margin-top: 10px;
+ }
+ table, th, td {
+border: 1px solid #999;
+ }
+ th, td {
+ padding: 8px;
+ text-align: left;
+ }
+ </style>
 </head>
-
 <body>
-
-<h2>Search with AJAX Suggestions</h2>
-
-<input type="text" id="searchBox" placeholder="Type to search...">
-
-<div id="suggestions"></div>
-
-<script>
-
-$(document).ready(function(){
-
-$("#searchBox").keyup(function(){
-
-let query = $(this).val();
-
-if(query.length > 0){
-
-$.ajax({
-url: "search.php",
-method: "POST",
-data: {search: query},
-
-success: function(data){
-$("#suggestions").html(data);
-$("#suggestions").show();
-}
-
-});
-
-}else{
-$("#suggestions").hide();
-}
-
-});
-
-$(document).on("click",".suggestion-item",function(){
-$("#searchBox").val($(this).text());
-$("#suggestions").hide();
-});
-
-});
-
-</script>
-
-</body>
-</html>
-
-    
+<div class="resume">
+ <div class="header">
+ <h1>diksha kale</h1>
+ <p class="8xxxxxxxxx">
+ Email: dikshakale011@gmail.com | Mobile: 9XXXXXXXXX | Th
+ </p>
+ </div>
+ <h3>Career Objective</h3>
+ <p>
+ A motivated and dedicated individual seeking an opportunity to
+ technical skills and knowledge for the growth of the organizati
+ enhancing my professional skills.
+ </p>
+ <h3>Personal Details</h3>
+ <p><b>Full Name:</b> DIKSHA RAJU KALE</p>
+ <p><b>Date of Birth:</b> 11/05/2004</p>
+ <p><b>Gender:</b> Female</p>
+ <p><b>Nationality:</b> Indian</p>
+ <p><b>Languages Known:</b> English, Hindi, Marathi</p>
+ <p><b>Date of Birth:</b> 11/05/2004</p>
+ <p><b>Gender:</b> Female</p>
+ <p><b>Nationality:</b> Indian</p>
+ <p><b>Languages Known:</b> English, Hindi, Marathi</p>
+ <p><b>Address:</b> PARSIK NAGAR,Thane (W)</p>
+ <h3>Educational Qualification</h3>
+ <table>
+ <tr>
+ <th>Diploma Qualified</th>
+ <th>navjeevan Polytechnic</th>
+ <th>MSBTE</th>
+ <th>2025</th>
+ <th>74%</th>
+  <p>
+Developed a safety system using sensors to detect trains on the
+ and send alerts to the station master for track switching.
+      </p>
